@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<p>Add and delete players that are Out of Region (OoR). A player marked OoR will 
+not be considered for rankings (loss to this player will not reduce the losers 
+ranking and conversly a win will not increse the winners ranking). OoR players 
+also will not appear in the ranking list.</p>
+<form action="addOoR" method="post">
+<p>New OoR Player:</p>
+<input type="text" name="newPlayer">
+<input type="submit" value="Add">
+</form>
+<form action="deleteOoR" method="post">
+<p>Select an OoR player to remove from the list</p>
+<select name="deletePlayer">
+  {% for player in players %}
+    <option value="{{player}}">{{player}}</option>
+  {% endfor %}
+</select>
+<input type="submit" value="Delete">
+</form>
+<p>List of OoR Players:
+<br>
+{% for player in players %}
+{{player}}
+<br>
+{% endfor %}
+{% endblock %}

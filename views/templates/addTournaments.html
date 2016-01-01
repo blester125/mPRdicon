@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<p>A form to add tournaments to the database</p>
+<p>Please enter URL's in the form subdomain-url if the tournament was part 
+of an organization or just the bracket url (the part after the /)</p>
+<p>This process may take a while depending on your internet connection</p>
+<form action="addTournaments" method="POST">
+  Tournament URL:
+  <input type="text" name="url">
+  <input type="submit" value="Add">
+{% endblock %}

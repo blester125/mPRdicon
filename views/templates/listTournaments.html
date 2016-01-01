@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<p>A list of all tournaments considered and links to the brackets</p>
+<table border="1">
+    <tr>
+      <td>Name</td>
+      <td>Date</td>
+    </tr>
+    {% for i in tournaments %}
+      <tr>
+        <td><a href={{i.url}}>{{i.name}}</a></td>
+        <td>{{i.timestamp}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

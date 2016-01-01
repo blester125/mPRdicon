@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<p>Select a tournament to delete from consideration</p>
+<form action="/deleteTournaments" method="post">
+<select name="tournament_to_delete">
+  {% for tournament in tournaments %}
+    <option value="{{tournament.url}}">{{tournament.name}}</option>
+  {% endfor %}
+</select>
+<input type="submit" value="Delete">
+</form>
+{% endblock %}

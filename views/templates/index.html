@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+  <p> Simple PR for PGH NEOH</p>
+  <table border="1">
+    <tr>
+      <td>Rank</td>
+      <td>Name</td>
+      <td>Score</td>
+    </tr>
+    {% for i, j in rankings %}
+      <tr>
+        <td>{{i}}</td>
+        <td>{{j.tag}}</td>
+        <td>{{j.ranking.mu|floatformat:2}}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<p>A portal to merge two players (when someone uses a tag that is not their 
+normal one). be careful if two players are merged who are not supposed to be 
+merged the tournaments they particapated in will need to be deleted and readded.
+</p>
+<form action="mergePlayers" method="post">
+Replace
+<select name="newTag">
+{% for player in players %}
+  <option value={{player.tag}}>{{player.tag}}</option>
+{% endfor %}
+</select>
+with
+<select name="oldTag">
+{% for player in players %}
+  <option value={{player.tag}}>{{player.tag}}</option>
+{% endfor %}
+</select>
+<input type="submit" value="Merge">
+</form>
+{% endblock %}

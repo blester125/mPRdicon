@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>mPRdicon</title>
+    <link rel="icon" href="/static/logo.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="/static/logo.ico" type="image/x-icon"/>
+    {% block scripts %}
+    {% endblock %}
+  </head>
+  <body>
+    <a href="/">Rankings</a>
+    <a href="/about">About</a>
+    <a href="/history">History</a>
+    <a href="/listTournaments">List Tournaments</a>
+    {% if admin %}
+      <br />
+      <a href="/addTournaments">Add Tournament</a>
+      <a href="/deleteTournaments">Delete Tournament</a>
+      <a href="/oorPlayers">OoR Players</a>
+      <!--a href="/mergePlayers">Merge Players</a-->
+      <a href="/generateRankings">Generate Rankings</a>
+      <!--a href="/fetch">Fetch</a-->
+    {% endif %}
+    <a href={{url}}>
+    {% if user %}
+      Log Out
+    {% else %}
+      Log In
+    {% endif %}
+      </a>
+    <h1>mPRdicon</h1>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

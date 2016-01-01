@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<p>A searchable history of head to head matches</p>
+<form action="history" method="post">
+Player 1:
+<input type="text" name="player1">
+Player 2:
+<input type="text" name="player2">
+<input type="submit" value="Search">
+<table border="1">
+  <tr>
+    <td>Player 1</td>
+    <td>Score</td>
+    <td>Player 2</td>
+    <td>Tournament</td>
+    <!--td>LifeTime</td-->
+  </tr>
+  {% for i in rankings %}
+    <tr>
+      {% if i.player1 in i.winner %}
+        <td bgcolor="5DFC0A">{{i.player1}}</td>
+        <td>{{i.score}}</td>
+        <td bgcolor="FF0000">{{i.player2}}</td>
+        <td><a href={{i.tournament_url}}>{{i.tournament}}</a></td>
+      {% endif %}
+      {% if i.player2 in i.winner %}
+        <td bgcolor="FF0000">{{i.player1}}</td>
+        <td>{{i.score}}</td>
+        <td bgcolor="5DFC0A">{{i.player2}}</td>
+        <td><a href=>{{i.tournament}}</a></td>
+      {% endif %}
+    </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock %}
