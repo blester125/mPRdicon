@@ -10,7 +10,11 @@ from views.RenderTemplate import *
 
 class GenerateRankings(webapp2.RequestHandler):
   def get(self):
-    OoR = OoRModel.query().get().players
+    OoR_object = OoRModel.query().get()
+    if OoR_object == None:
+      OoR = []
+    else:
+      OoR = OoR_object.players
     template_params = handle_user()
     if not 'admin' in template_params:
       self.redirect('/')

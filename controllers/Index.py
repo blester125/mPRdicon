@@ -8,6 +8,8 @@ from controllers.User import handle_user
 
 from controllers.Config import *
 
+from google.appengine.api import users
+
 class Index(webapp2.RequestHandler):
   def get(self):
     template_params = handle_user()
