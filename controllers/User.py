@@ -17,6 +17,6 @@ def handle_user():
       'user': True,
       'url': users.create_logout_url('/'),
     }
-    if user.email() == ADMIN:
+    if user.email() in ADMIN:
       template_params['admin'] = True
   return template_params

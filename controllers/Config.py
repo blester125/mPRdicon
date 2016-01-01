@@ -18,11 +18,12 @@ def fetchChallonge():
 def fetchAdmin():
   path = os.path.join(os.path.dirname(__file__),"config.cfg")
   f = open(path)
+  Admin = []
   for line in f:
     parts = line.split(":")
     if len(parts) >= 2:
       if parts[1].endswith("\n"):
         parts[1] = parts[1][:-1]
     if parts[0] == "ADMIN":
-      Admin = parts[1]
+      Admin.append(parts[1])
   return Admin
