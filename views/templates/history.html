@@ -1,20 +1,27 @@
 {% extends "base.html" %}
 {% block content %}
-<p>A searchable history of head to head matches</p>
+<p>A searchable history of head to head matches.</p>
 <form action="history" method="post">
 Player 1:
 <input type="text" name="player1">
 Player 2:
 <input type="text" name="player2">
 <input type="submit" value="Search">
-<table border="1">
-  <tr>
-    <td>Player 1</td>
-    <td>Score</td>
-    <td>Player 2</td>
-    <td>Tournament</td>
-    <!--td>LifeTime</td-->
-  </tr>
+
+<br><br><br>
+
+<div style="width:70%">
+<table id="player_history" class="table table-striped table_bordered" cellspacing="0" border="1" style="border-collapse: collapse">
+  <thead>
+    <tr>
+      <th>Player 1</th>
+      <th>Score</th>
+      <th>Player 2</th>
+      <th>Tournament</th>
+      <!--td>LifeTime</td-->
+    </tr>
+  </thead>
+  <tbody>
   {% for i in rankings %}
     <tr>
       {% if i.player1 in i.winner %}
@@ -31,7 +38,15 @@ Player 2:
       {% endif %}
     </tr>
   {% endfor %}
+  </tbody>
 </table>
+</div>
 
+<script type="text/javascript">
 
+    $(document).ready( function () {
+        $('#player_history').DataTable();
+    } );
+
+  </script>
 {% endblock %}

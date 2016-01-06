@@ -1,16 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<p>A list of all tournaments considered and links to the brackets</p>
-<table border="1">
-    <tr>
-      <td>Name</td>
-      <td>Date</td>
-    </tr>
+<p>A list of all tournaments considered and links to the brackets.</p>
+<div style="width:70%">
+<table id="list_tournaments" class="table table-striped table_bordered" cellspacing="0" border="1" style="border-collapse: collapse">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
     {% for i in tournaments %}
       <tr>
         <td><a href={{i.url}}>{{i.name}}</a></td>
         <td>{{i.timestamp}}</td>
       </tr>
     {% endfor %}
+    </tbody>
   </table>
+</div>
+
+  <script type="text/javascript">
+
+    $(document).ready( function () {
+        $('#list_tournaments').DataTable();
+    } );
+
+  </script>
 {% endblock %}

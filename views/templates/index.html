@@ -1,18 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
-  <p> Simple PR for PGH NEOH</p>
-  <table border="1">
-    <tr>
-      <td>Rank</td>
-      <td>Name</td>
-      <td>Score</td>
-    </tr>
-    {% for i, j in rankings %}
-      <tr>
-        <td>{{i}}</td>
-        <td>{{j.tag}}</td>
-        <td>{{j.ranking.mu|floatformat:2}}</td>
-      </tr>
-    {% endfor %}
-  </table>
+  <p> A Simple Power Ranking for PGH/NEOH.</p>
+  <br>
+  <div style="width:70%">
+    <table id="main_pr" class="table table-striped table_bordered" cellspacing="0" border="1" style="border-collapse: collapse">
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for i, j in rankings %}
+        <tr>
+          <td>{{i}}</td>
+          <td>{{j.tag}}</td>
+          <td>{{j.ranking.mu|floatformat:2}}</td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+  <script type="text/javascript">
+
+    $(document).ready( function () {
+        $('#main_pr').DataTable();
+    } );
+
+  </script>
 {% endblock %}
