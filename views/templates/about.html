@@ -1,22 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
-<p>An automatic PR based on moal results using the TrueSkill ranking algorithm</p>
-<p>This website was written by Brian Lester</p>
+<p>An automatic PR based on MoaL results using the TrueSkill ranking algorithm.</p>
+<p>This website was written by Brian Lester.</p>
 <p>Use the URL /fetch to retrive a JSON representation of the ranking in the 
-form of</p>
+form of:</p>
 <code>
   {
     "size": 4,
     "players": ["1", "2", "3", "4"]
   }
 </code>
-<p>Ranking from this site only include a small scope of tournaments and it to be 
+<br><br>
+<p>Ranking from this site only includes a small scope of tournaments and it is to be 
 used to seed Man on a Ledge events as it does not take into account Out or Region 
 results.</p>
-<p>When adding tournaments the tournament data is pulled from challonge and parse 
+<p>When adding tournaments, the tournament data is pulled from Challonge and parsed 
 so it may take a decent amount of time to execute. When generating rankings the 
 whole history is taken into account so when a lot of tournament data is used the 
-generation may take sometime.
+generation may take some time.
 {% if admin %}
 <p>Admin Information: The general workflow for an admin is to add tournaments, 
 add OoR players, and then Generate Rankings. If a tournament is deleted or added 
